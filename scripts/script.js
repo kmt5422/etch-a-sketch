@@ -1,13 +1,14 @@
 const tilesDiv = document.querySelector('.tiles');
 let tiles = [];
 const resetButton = document.querySelector('#reset-button');
-const fillButton = document.querySelector('#fill-button');
+const colorButton = document.querySelector('#color-button');
+const colorSelector = document.querySelector('#color-selector');
+let tileColor = colorSelector.value;
 
 function createTiles(cols) {
     const numTiles = cols * cols;
     const tilesDivWidth = tilesDiv.offsetWidth;
     const tileWidth = (tilesDivWidth - 2) / cols;
-    console.log(tileWidth);
     for (let i = 0; i < numTiles; i++) {
         const tile = document.createElement('div');
         tile.style.width = `${tileWidth}px`;
@@ -31,10 +32,18 @@ function randomNumber(num) {
 }
 
 function changeTileColor(event) {
-    event.target.style.backgroundColor = randomColor();
+    event.target.style.backgroundColor = tileColor;
 }
 
 resetButton.addEventListener('click', initializeGrid);
+colorSelector.addEventListener('change', (event) => tileColor = event.target.value);
+colorButton.addEventListener('click', fillTilesColor)
+
+function fillTilesColor() {
+    tiles.forEach((tile) => {
+        tile.style.backgroundColor = colorSelector.value;
+    });
+}
 
 function initializeGrid() {
     tiles.forEach(tile => tilesDiv.removeChild(tile));
