@@ -1,0 +1,43 @@
+html, body, .container {
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.options > button {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-style: none;
+}
+
+.tiles {
+    width: 80vh;
+    height: 80vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.tile {
+    margin: 0;
+    padding: 0;
+}
+
+.tile:hover {
+    background-color: black !important;
+}
